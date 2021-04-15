@@ -19,11 +19,9 @@ def check_special_character(data: pd.DataFrame, special_character) -> None:
         spl_char_found = {}
         for character in special_character:
             # Checking special character in each row of object type data columns.
-            columns = [
-                cols
+            columns = [cols
                 for cols in data.select_dtypes("object").columns
-                if True in (data[cols].str.find(character).unique() >= 0)
-            ]
+                if True in (data[cols].str.find(character).unique() >= 0)]
             if len(columns) > 0:
                 spl_char_found[character] = columns
         if len(spl_char_found) > 0:
