@@ -4,6 +4,15 @@ from traceback import format_exc
 
 
 def reduce_memory(data: pd.DataFrame) -> pd.DataFrame:
+    """Parameter:
+            data = DataFrame
+
+    This function will reduce memory consumption by changing datatypes
+    of available column. For example conversion of float64 to float32 will
+    gives 50% memory reduction.
+
+        Return:
+            DataFrame after converting datatypes"""
     try:
         cat_cutoff = 0.5
         start_mem_usg = data.memory_usage().sum() / 1024 ** 2
@@ -73,7 +82,7 @@ def reduce_memory(data: pd.DataFrame) -> pd.DataFrame:
         print(f"Memory usage is: {mem_usg} MB")
         print(f"This is: {100 * mem_usg / start_mem_usg} % of the initial size")
         print("Successfully optimized data type of the given dataframe.")
-        return data, NAlist
+        return data
     except Exception as e:
         print("Unable to optimize dataframe.")
         print(format_exc())
