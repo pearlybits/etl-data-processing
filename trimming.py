@@ -1,6 +1,6 @@
 import pandas as pd
 
-
+// Updated code in trimming function
 def trim(data: pd.DataFrame) -> pd.DataFrame:
 
     """
