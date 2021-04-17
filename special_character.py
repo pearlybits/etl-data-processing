@@ -1,7 +1,7 @@
 import pandas as pd
 from traceback import format_exc
 
-
+// this function is to remove special character
 def check_special_character(data: pd.DataFrame, special_character) -> None:
     """
     Parameter:
